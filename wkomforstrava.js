@@ -50,19 +50,19 @@ function wkomForStrava(){
   }
 
   function getPower( scrapedData ){
-  	for ( let i = 0, j = scrapedData.length; i < j; i++ ){
+    for ( let i = 0, j = scrapedData.length; i < j; i++ ){
   		let segPath = scrapedData[i].path,
   			segWatts,
   			segDownhill;
-  		jQuery.ajax({
+      jQuery.ajax({
   	    type: 'GET',
   	    url: segPath,
   	    crossDomain: false,
   	    complete: function( data ){
   		    segDownhill = data.responseJSON.downhill_ride_segment;
   		    if ( segDownhill == true ){
-            console.error( `%c_${extensionName}_ will not work on this segment as it is marked as downhill.`, consoleStyle )
-    				return; // TODO: swap this for a labeled break to defeat the for loop
+            console.error( `%c_${extensionName}_ will not work on this segment as it is marked as downhill.`, consoleStyle );
+    				return; // TODO: swap this for a labeled break to defeat the loop
     	    }
     			segWatts = data.responseJSON.avg_watts_raw;
   				//this needs a check
