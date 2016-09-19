@@ -11,13 +11,14 @@ function wkomForStrava(){
       time: 'innerText'
       // ,watts: null,
       // measuredWatts: null,
-      // kilos: null
+      // kilos: null,
+      // wkg: null
     },
     scrapedData = [],
     extensionName = 'W/kom for Strava',
     consoleStyle = 'background-color: #FC4C02; color: #FFF;';
 
-  for ( let i = 0; i < scrapeTargets.length; i++ ){
+  for ( let i = 0, j = scrapeTargets.length; i < j; i++ ){
     let scrapeTarget = scrapeTargets[i];
     jQuery( scrapeTarget[0] /* selector */ )
       .slice( 0, scrapeTarget[1] /* limit */ )
@@ -49,7 +50,7 @@ function wkomForStrava(){
   }
 
   function getPower( scrapedData ){
-  	for ( let i = 0; i < scrapedData.length; i++ ){
+  	for ( let i = 0, j = scrapedData.length; i < j; i++ ){
   		let segPath = scrapedData[i].path,
   			segWatts,
   			segDownhill;
@@ -80,8 +81,8 @@ function wkomForStrava(){
       url: segPath,
       crossDomain: true,
       complete: function( data ){
-  			segKilosRaw = data.responseText.match( /(activityAthleteWeight)\(\d{2,}\.\d{1,}\)/ );
-  			segRealWatts = data.responseText.indexOf( 'pageView.power({"visible":true' ) !== -1;
+  			let segKilosRaw = data.responseText.match( /(activityAthleteWeight)\(\d{2,}\.\d{1,}\)/ ),
+    			segRealWatts = data.responseText.indexOf( 'pageView.power({"visible":true' ) !== -1;
   			scrapedData[i].measuredWatts = false;
   			if ( segKilosRaw ){
   				segKilos = segKilosRaw[0] /* (.match() returns an array) */
@@ -103,10 +104,10 @@ function wkomForStrava(){
   		segKilos = scrapedData[i].kilos,
   		elem = jQuery( `#segments tr.selected div.leaderboard table tbody tr td:nth-child(3n+1) a[href="${segPath}"]` );
   		if ( segWatts && segKilos && elem ) {
-  			let wkg = Number( Math.round( ( segWatts / segKilos ) + 'e2' ) + 'e-2' ).toFixed( 2 );
-        console.log(scrapedData[i]);
-  			scrapedData[i].wkg = wkg,
-				measuredWatts = scrapedData[i].measuredWatts;
+  			let wkg = Number( Math.round( ( segWatts / segKilos ) + 'e2' ) + 'e-2' ).toFixed( 2 ),
+          measuredWatts = scrapedData[i].measuredWatts;;
+        //console.log(scrapedData[i]);
+  			scrapedData[i].wkg = wkg;
   			elem.parent()
   				.next()
   				.fadeOut()
