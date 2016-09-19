@@ -62,7 +62,7 @@ function wkomForStrava(){
   		    segDownhill = data.responseJSON.downhill_ride_segment;
   		    if ( segDownhill == true ){
             console.error( `%c_${extensionName}_ will not work on this segment as it is marked as downhill.`, consoleStyle )
-    				return; // This needs to be a labeled break to defeat the for loop
+    				return; // TODO: swap this for a labeled break to defeat the for loop
     	    }
     			segWatts = data.responseJSON.avg_watts_raw;
   				//this needs a check
@@ -118,3 +118,5 @@ function wkomForStrava(){
   	jQuery( 'td.stravawkom' ).fadeIn();
   }
 };
+
+// TODO: attach wkomForStrava() to listener
