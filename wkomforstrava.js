@@ -1,4 +1,7 @@
 function wkomForStrava(){
+
+  'use strict';
+
   let scrapeTargets = [
       [ '#segments tr.selected div.leaderboard table tbody tr td:nth-child(3n+1) a', 10 ],
       [ '#segments tr.selected div.leaderboard table tbody tr.current-athlete td:nth-child(3n+1) a', 1 ]
@@ -34,7 +37,7 @@ function wkomForStrava(){
       hasSecs = ( segTime.indexOf( 's' ) !== -1 ),
       lessThanThreeMin = Number( segTime.split( ':' )[0] ) < 3;
     if ( hasSecs || lessThanThreeMin ){
-      console.log( `%c${extensionName} will not work on this segment because the leader completed it in less than 3 minutes.`, consoleStyle )
+      console.error( `%c${extensionName} will not work on this segment because the leader completed it in less than 3 minutes.`, consoleStyle );
       return false;
     } else {
       return true;
@@ -57,7 +60,7 @@ function wkomForStrava(){
   	    complete: function( data ){
   		    segDownhill = data.responseJSON.downhill_ride_segment;
   		    if ( segDownhill == true ){
-            console.log( `%c_${extensionName}_ will not work on this segment as it is marked as downhill.`, consoleStyle )
+            console.error( `%c_${extensionName}_ will not work on this segment as it is marked as downhill.`, consoleStyle )
     				return; // This needs to be a labeled break to defeat the for loop
     	    }
     			segWatts = data.responseJSON.avg_watts_raw;
@@ -67,7 +70,7 @@ function wkomForStrava(){
   	  	}
   		});
   	};
-  };
+  }
 
   function getWeight( scrapedData, i ){
   	let segPath = scrapedData[i].path,
@@ -92,7 +95,7 @@ function wkomForStrava(){
   			displayWkg( scrapedData, i );
     	}
   	});
-  };
+  }
 
   function displayWkg( scrapedData, i ){
   	let segPath = scrapedData[i].path,
@@ -112,5 +115,5 @@ function wkomForStrava(){
   				.css({'filter' : 'grayscale(1)'});
   		}
   	jQuery( 'td.stravawkom' ).fadeIn();
-  };
+  }
 };
