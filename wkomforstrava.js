@@ -103,18 +103,19 @@ function wkomForStrava(){
   		segWatts = scrapedData[i].watts,
   		segKilos = scrapedData[i].kilos,
   		elem = jQuery( `#segments tr.selected div.leaderboard table tbody tr td:nth-child(3n+1) a[href="${segPath}"]` );
-  		if ( segWatts && segKilos && elem ) {
-  			let wkg = Number( Math.round( ( segWatts / segKilos ) + 'e2' ) + 'e-2' ).toFixed( 2 ),
-          measuredWatts = scrapedData[i].measuredWatts;;
-        //console.log(scrapedData[i]);
-  			scrapedData[i].wkg = wkg;
-  			elem.parent()
-  				.next()
-  				.fadeOut()
-  				.addClass( 'stravawkom' )
-  				.html( ( measuredWatts ? '&#9889; ' : '' ) + `${wkg} <abbr class="unit" title="watts per kilogram">W/kg</abbr>` )
-  				.css({'filter' : 'grayscale(1)'});
-  		}
+		if ( segWatts && segKilos && elem ) {
+			let wkg = Number( Math.round( ( segWatts / segKilos ) + 'e2' ) + 'e-2' ).toFixed( 2 ),
+        measuredWatts = scrapedData[i].measuredWatts;
+      //console.log(scrapedData[i]);
+			scrapedData[i].wkg = wkg;
+			elem.parent()
+				.next()
+				.fadeOut()
+				.addClass( 'stravawkom' )
+				.html( ( measuredWatts ? '&#9889; ' : '' ) + `${wkg} <abbr class="unit" title="watts per kilogram">W/kg</abbr>` )
+				.css({'filter' : 'grayscale(1)'});
+		}
+    // TODO: add contitional so this all happens at once
   	jQuery( 'td.stravawkom' ).fadeIn();
   }
 };
