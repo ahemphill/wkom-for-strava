@@ -65,7 +65,7 @@ function wkomForStrava(){
     				return; // TODO: swap this for a labeled break to defeat the loop
     	    }
     			segWatts = data.responseJSON.avg_watts_raw;
-  				//this needs a check
+  				// TODO: determine whether this needs a null check
   				scrapedData[i].watts = segWatts;
   				getWeight( scrapedData, i );
   	  	}
@@ -106,7 +106,6 @@ function wkomForStrava(){
 		if ( segWatts && segKilos && elem ) {
 			let wkg = Number( Math.round( ( segWatts / segKilos ) + 'e2' ) + 'e-2' ).toFixed( 2 ),
         measuredWatts = scrapedData[i].measuredWatts;
-      //console.log(scrapedData[i]);
 			scrapedData[i].wkg = wkg;
 			elem.parent()
 				.next()
