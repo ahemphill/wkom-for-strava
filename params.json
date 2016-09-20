@@ -1,6 +1,6 @@
 {
   "name": "W/kom for Strava",
   "tagline": "'Cause it's all relative",
-  "body": "# W/kom for Strava\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "body": "# W/kom for Strava\r\n![W/Kom for Strava screenshot][screenshot]\r\n### Functionality\r\nThis userscript displays measured or estimated watts per kilogram (W/kg) for activity segment leaderboards (e.g. <https://www.strava.com/activities/643122549/segments/15718362409>). To respect [Strava](https://www.strava.com), it works only on…\r\n* Top 10 plus the currently authenticated user\r\n* Segments longer than three minutes\r\n* Segments [not flagged as downhill](#caveats-todo)\r\n\r\n### Requirements\r\n* ECMAScript 2015-compatible browser\r\n* Interwebs\r\n* Watts\r\n\r\n### Caveats (TODO)\r\n* Not triggered by a listener — requires manual invocation of wkomForStrava()\r\n* Logs an error for all 11 GETs if the segment is flagged as downhill\r\n* Displays results as they are fetched rather than all at once\r\n* Works only on activity pages\r\n\r\n[screenshot]: wkomforstrava.png\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }

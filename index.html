@@ -1,48 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <title>W/kom for Strava by ahemphill</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>W/kom for Strava by ahemphill</title>
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+    <div class="wrapper">
+      <header>
+        <h1>W/kom for Strava</h1>
+        <p>&#39;Cause it&#39;s all relative</p>
 
-        <header>
-          <h1>W/kom for Strava</h1>
-          <h2>&#39;Cause it&#39;s all relative</h2>
-        </header>
+        <p class="view"><a href="https://github.com/ahemphill/wkom-for-strava">View the Project on GitHub <small>ahemphill/wkom-for-strava</small></a></p>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/ahemphill/wkom-for-strava/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/ahemphill/wkom-for-strava/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/ahemphill/wkom-for-strava" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
 
-        <hr>
-
-        <section id="main_content">
-          <h1>
+        <ul>
+          <li><a href="https://github.com/ahemphill/wkom-for-strava/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/ahemphill/wkom-for-strava/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/ahemphill/wkom-for-strava">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
 <a id="wkom-for-strava" class="anchor" href="#wkom-for-strava" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>W/kom for Strava</h1>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </section>
+<p><img src="wkomforstrava.png" alt="W/Kom for Strava screenshot"></p>
 
-        <footer>
-          W/kom for Strava is maintained by <a href="https://github.com/ahemphill">ahemphill</a>.
-        </footer>
+<h3>
+<a id="functionality" class="anchor" href="#functionality" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functionality</h3>
 
-        
-      </div>
+<p>This userscript displays measured or estimated watts per kilogram (W/kg) for activity segment leaderboards (e.g. <a href="https://www.strava.com/activities/643122549/segments/15718362409">https://www.strava.com/activities/643122549/segments/15718362409</a>). To respect <a href="https://www.strava.com">Strava</a>, it works only on…</p>
+
+<ul>
+<li>Top 10 plus the currently authenticated user</li>
+<li>Segments longer than three minutes</li>
+<li>Segments <a href="#caveats-todo">not flagged as downhill</a>
+</li>
+</ul>
+
+<h3>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h3>
+
+<ul>
+<li>ECMAScript 2015-compatible browser</li>
+<li>Interwebs</li>
+<li>Watts</li>
+</ul>
+
+<h3>
+<a id="caveats-todo" class="anchor" href="#caveats-todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Caveats (TODO)</h3>
+
+<ul>
+<li>Not triggered by a listener — requires manual invocation of wkomForStrava()</li>
+<li>Logs an error for all 11 GETs if the segment is flagged as downhill</li>
+<li>Displays results as they are fetched rather than all at once</li>
+<li>Works only on activity pages</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/ahemphill">ahemphill</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>
