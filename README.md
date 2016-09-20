@@ -4,7 +4,7 @@
 This userscript displays measured or estimated watts per kilogram (W/kg) for activity segment leaderboards (e.g. <https://www.strava.com/activities/643122549/segments/15718362409>). To respect [Strava](https://www.strava.com), it works only on…
 * Top 10 plus the currently authenticated user
 * Segments longer than three minutes
-* Segments [not flagged as downhill](#downhill)
+* Segments [not flagged as downhill](#caveats-todo)
 
 ### Requirements
 * ECMAScript 2015-compatible browser
@@ -13,7 +13,7 @@ This userscript displays measured or estimated watts per kilogram (W/kg) for act
 
 ### Caveats (TODO)
 * Not triggered by a listener — requires manual invocation of wkomForStrava()
-* Logs an error for all 11 GETs if the segment is <a name="downhill">flagged as downhill</a>
+* Logs an error for all 11 GETs if the segment is flagged as downhill
 * Displays results as they are fetched rather than all at once
 * Works only on activity pages
 
