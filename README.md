@@ -9,7 +9,7 @@ This userscript displays measured or estimated watts per kilogram (W/kg) for act
 ### Requirements
 * ECMAScript 2015-compatible browser
 * Interwebs
-* Watts
+* :zap: Watts
 
 ### Caveats (TODO)
 * Not triggered by a listener — requires manual invocation of wkomForStrava()
