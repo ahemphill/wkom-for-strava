@@ -13,6 +13,7 @@ This userscript displays measured or estimated watts per kilogram (:zap:/:crown:
 
 ### Caveats (TODO)
 * Not triggered by a listener — requires manual invocation of wkomForStrava()
+* Uses individual GETs for wattage rather than '/leaderboard?raw=true' :pensive:
 * Logs an error for all 11 GETs if the segment is flagged as downhill
 * Displays results as they are fetched rather than all at once
 * Works only on activity pages

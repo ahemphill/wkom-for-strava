@@ -120,3 +120,4 @@ function wkomForStrava(){
 };
 
 // TODO: attach wkomForStrava() to listener
+// TODO: refactor getPower() to use single call on '/leaderboard?raw=true'
