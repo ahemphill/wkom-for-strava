@@ -38,7 +38,7 @@ function wkomForStrava(){
       hasSecs = ( segTime.indexOf( 's' ) !== -1 ),
       lessThanThreeMin = Number( segTime.split( ':' )[0] ) < 3;
     if ( hasSecs || lessThanThreeMin ){
-      console.error( `%c${extensionName} will not work on this segment because the leader completed it in less than 3 minutes.`, consoleStyle );
+      console.warn( `%c${extensionName} will not work on this segment because the leader completed it in less than 3 minutes.`, consoleStyle );
       return false;
     } else {
       return true;
@@ -61,7 +61,7 @@ function wkomForStrava(){
   	    complete: function( data ){
   		    segDownhill = data.responseJSON.downhill_ride_segment;
   		    if ( segDownhill == true ){
-            console.error( `%c_${extensionName}_ will not work on this segment as it is marked as downhill.`, consoleStyle );
+            console.warn( `%c${extensionName} will not work on this segment as it is marked as downhill.`, consoleStyle );
     				return; // TODO: swap this for a labeled break to defeat the loop
     	    }
     			segWatts = data.responseJSON.avg_watts_raw;
